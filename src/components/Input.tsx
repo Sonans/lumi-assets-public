@@ -5,5 +5,5 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export function Input({ className = '', ...props }: Props) {
-  return <input {...props} className={classes('font-sans p-2 border-solid border-[1px] border-gray-400 text-lg rounded-md outline-none', className)} {...props} />;
+  return <input {...props} className={classes('font-sans p-2 border-solid border-[1px] border-gray-400 text-md rounded-md outline-none', className)} {...props} />;
 }
