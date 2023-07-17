@@ -11,7 +11,6 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'assets',
       fileName: 'assets',
-      
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'tailwindcss'],

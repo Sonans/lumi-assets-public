@@ -1,9 +1,15 @@
 import React from 'react';
+import { classes } from '../utils/helpers';
 
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  className?: string;
 }
 
-export function Button({ children }: Props) {
-  return <button className='py-2 px-4 bg-yellow-300 text-black border-0 text-lg rounded-lg cursor-pointer'>{children}</button>;
+export function Button({ children, className = '', ...props }: Props) {
+  return (
+    <button {...props} className={classes('py-2 px-6 border-solid border-[1px] bg-yellow-300 text-black text-lg rounded-lg cursor-pointer', className)}>
+      {children}
+    </button>
+  );
 }
