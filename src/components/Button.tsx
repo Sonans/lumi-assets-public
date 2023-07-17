@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { classes } from '../utils/helpers';
+import { ThemeContext } from '../context/ThemeContext';
 
 type ButtonMode = 'dark' | 'light' | 'yellow' | 'green' | 'pink';
 
@@ -10,6 +11,10 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ children, mode = 'yellow', className = '', ...props }: Props) {
+
+  const theme = useContext(ThemeContext);
+  console.log(theme);
+
   const modeClasses: { [key in ButtonMode]: string } = {
     dark: 'bg-black text-white hover:bg-first-color hover:text-black disabled:hover:bg-black disabled:hover:text-white',
     light: 'bg-white text-black hover:bg-black hover:text-white disabled:hover:bg-white disabled:hover:text-black',
