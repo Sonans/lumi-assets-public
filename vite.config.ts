@@ -13,6 +13,16 @@ export default defineConfig({
       fileName: 'assets',
       
     },
+    rollupOptions: {
+      external: ['react', 'react-dom', 'tailwindcss'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          tailwindcss: 'tailwindcss',
+        },
+      },
+    },
   },
   plugins: [react(), dts(), libCss()],
 })
