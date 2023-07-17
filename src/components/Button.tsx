@@ -1,11 +1,9 @@
 import React from 'react';
 
-interface ButtonProps extends React.HTMLAttributes<HTMLDivElement> {
-  children?: React.ReactNode;
+interface Props extends React.HTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
 }
 
-function Button({ children }: ButtonProps) {
-  return <button style={{ backgroundColor: 'yellow' }}>{children}</button>;
+export function Button({ children }: Props) {
+  return <button className='py-2 px-4 bg-yellow-300 text-black border-0 text-lg rounded-lg cursor-pointer'>{children}</button>;
 }
-
-export default Button;
