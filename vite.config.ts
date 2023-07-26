@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import libCss from 'vite-plugin-libcss';
 
@@ -24,4 +24,4 @@ export default defineConfig({
     },
   },
   plugins: [react(), dts(), libCss()],
-})
+});
