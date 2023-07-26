@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { classes } from '../utils/helpers';
 
 type ButtonMode = 'dark' | 'light' | 'yellow' | 'green' | 'pink';
