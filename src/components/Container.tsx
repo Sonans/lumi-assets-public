@@ -6,9 +6,5 @@ interface Props {
 }
 
 export function Container({ children, className = '' }: Props) {
-  return (
-    <div className={classes('font-sans px-4 xl:w-[1000px] xl:mx-auto', className)}>
-      {children}
-    </div>
-  );
+  return <div className={classes('font-sans px-4 md:w-[1000px] xl:mx-auto', className)}>{children}</div>;
 }
