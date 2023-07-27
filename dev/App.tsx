@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Header, Input, Modal, Card, Layout, Column } from '../src';
+import { Button, Header, Input, Modal, Card, Layout, Column, Accordion, Container, Select } from '../src';
 import { PresentationCard } from './components/PresentationCard';
 
 export default function App() {
@@ -10,6 +10,32 @@ export default function App() {
         <div className='p-8'>
           <h1 className='text-4xl'>Components</h1>
         </div>
+        <PresentationCard title='Select'>
+          <Select options={[{text: "1", value: "1"}, {text: "2", value: "2"}]} onChange={(e)=> {console.log(e.target.value);}} />
+        </PresentationCard>
+        <PresentationCard title='Accordion'>
+          <Container>
+            <Accordion
+              titleBackgroundColor='white'
+              contentBackgroundColor='white'
+              data={[
+                {
+                  title: 'Hello',
+                  content: (
+                    <ul>
+                      <li>lol</li>
+                      <li>lol</li>
+                      <li>lol</li>
+                      <li>lol</li>
+                    </ul>
+                  ),
+                },
+                { title: 'Goodbye', content: 'Mars!' },
+                { title: 'Goodbye', content: 'Mars!' },
+              ]}
+            />
+          </Container>
+        </PresentationCard>
         <PresentationCard title='Button'>
           <Button>Hello!</Button>
           <Button mode='dark'>Hello!</Button>

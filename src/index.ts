@@ -9,3 +9,5 @@ export * from './components/Column';
 export * from './components/Layout';
 export * from './components/Logo';
 export * from './components/Card';
+export * from './components/Accordion';
+export * from './components/Select';
