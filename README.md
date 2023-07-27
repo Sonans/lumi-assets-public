@@ -95,3 +95,7 @@ git push && git push --tags
 ## Publishing to NPM
 
 To publish the new version to npm, you need to create a new release on GitHub. For detailed instructions on how to create a release, visit [this guide](https://docs.github.com/en/github/administering-a-repository/managing-releases-in-a-repository) provided by GitHub.
+
+## Do you want to contribute?
+
+Create a pull request

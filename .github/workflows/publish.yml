@@ -1,17 +1,24 @@
 name: Publish assets package to npm
 on:
   push:
-      branches:
-        - main
+    branches:
+      - main
+
 jobs:
-  build:
+  build_and_publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
+
+      # Update the version and commit changes
+      - run: npm version patch
+      - run: git push --follow-tags origin main
+
       - run: rm -rf ./dev
       - run: npm install
       - run: npm run build
