@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 
-interface Props {
+export interface ModalProps {
   onClose: () => void;
   children: React.ReactNode;
 }
 
-export function Modal({ onClose, children }: Props) {
+export function Modal({ onClose, children }: ModalProps) {
   useEffect(() => {
     const body = document.querySelector('body');
     body?.classList.add('overflow-hidden');
@@ -40,7 +40,7 @@ export function Modal({ onClose, children }: Props) {
     <div
       onClick={handleClose}
       className='modal fixed inset-0 flex items-center justify-center z-50 overflow-auto bg-black bg-opacity-75'>
-      <div className='w-11/12 md:max-w-md mx-auto shadow-lg py-4 bg-white px-6 border-4 border-first-color'>
+      <div className='w-11/12 md:max-w-md mx-auto shadow-lg py-4 bg-white px-6 border-4 border-primary'>
         <div className='w-full flex justify-end'>
           <button onClick={onClose} className='text-black close-modal'>
             <svg

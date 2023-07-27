@@ -3,13 +3,13 @@ import { classes } from '../utils/helpers';
 
 type ButtonMode = 'dark' | 'light' | 'yellow' | 'green' | 'pink';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   mode?: ButtonMode;
   children: React.ReactNode;
   className?: string;
 }
 
-export function Button({ children, mode = 'yellow', className = '', ...props }: Props) {
+export function Button({ children, mode = 'yellow', className = '', ...props }: ButtonProps) {
   const modeClasses = {
     dark: 'bg-black text-white hover:bg-primary hover:text-black disabled:hover:bg-black disabled:hover:text-white',
     light: 'bg-white text-black hover:bg-black hover:text-white disabled:hover:bg-white disabled:hover:text-black',
@@ -25,7 +25,7 @@ export function Button({ children, mode = 'yellow', className = '', ...props }: 
       {...props}
       className={classes(
         modeClasses[mode],
-        `font-sans text-md font-bold flex items-center rounded-md cursor-pointer border border-solid border-black py-2 px-4 disabled:opacity-50 disabled:bg-bg-grey disabled:text-text-grey disabled:cursor-default transition-all`,
+        `font-sans text-md font-bold flex items-center justify-center w-auto self-start grow-0 rounded-md cursor-pointer border border-solid border-black py-2 px-4 disabled:opacity-50 disabled:bg-bg-grey disabled:text-text-grey disabled:cursor-default transition-all`,
         className
       )}>
       {children}

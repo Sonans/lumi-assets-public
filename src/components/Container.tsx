@@ -1,10 +1,10 @@
 import { classes } from '../utils/helpers';
 
-interface Props {
+export interface ContainerProps {
   children: React.ReactNode;
   className?: string;
 }
 
-export function Container({ children, className = '' }: Props) {
-  return <div className={classes('font-sans px-4 md:w-[1000px] xl:mx-auto', className)}>{children}</div>;
+export function Container({ children, className = '' }: ContainerProps) {
+  return <div className={classes('font-sans px-2 sm:px-0 container mx-auto', className)}>{children}</div>;
 }
