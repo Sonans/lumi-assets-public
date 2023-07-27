@@ -1,9 +1,9 @@
-interface Props {
-  type: 'logo' | 'symbol';
+export interface LogoProps {
+  type?: 'logo' | 'symbol';
   className?: string;
 }
 
-export function Logo({ type, className = 'w-24 text-black' }: Props) {
+export function Logo({ type = "logo", className = 'w-24 text-black' }: LogoProps) {
   if (type === 'logo') {
     return (
       <svg className={className} viewBox='0 0 95 21' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>

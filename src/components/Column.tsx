@@ -3,15 +3,18 @@ import React from 'react';
 type ColStart = 1 | 2 | 3 | 4 | 5 | 6;
 type RowStart = 1 | 2 | 3 | 4 | 5 | 6;
 type ColSpan = 1 | 2 | 3 | 4 | 5 | 6;
+type ColGap = 'sm' | 'md' | 'lg' | 'xl' | 'none';
 
-interface Props {
+export interface ColumnProps {
   colStart?: ColStart;
   rowStart?: RowStart;
   colSpan?: ColSpan;
+  gap?: ColGap;
+  direction?: 'row' | 'column';
   children: React.ReactNode;
 }
 
-export function Column({ colStart = 1, rowStart = 1, children, colSpan = 1 }: Props) {
+export function Column({ colStart = 1, rowStart = 1, children, colSpan = 1, gap = 'md', direction = 'column' }: ColumnProps) {
   const colPlacementStyle = {
     1: 'col-start-1',
     2: 'col-start-2',
@@ -39,8 +42,22 @@ export function Column({ colStart = 1, rowStart = 1, children, colSpan = 1 }: Pr
     6: 'col-span-6',
   };
 
+  const gapStyle = {
+    sm: 'gap-2',
+    md: 'gap-4',
+    lg: 'gap-8',
+    xl: 'gap-16',
+    none: '',
+  };
+
+  const directionStyle = {
+    row: 'flex-row',
+    column: 'flex-col',
+  };
+
   return (
-    <div className={`${colPlacementStyle[colStart]} ${rowPlacementStyle[rowStart]} ${colSpanStyle[colSpan]}`}>
+    <div
+      className={`flex ${directionStyle[direction]} ${colPlacementStyle[colStart]} ${rowPlacementStyle[rowStart]} ${colSpanStyle[colSpan]} ${gapStyle[gap]}`}>
       {children}
     </div>
   );
