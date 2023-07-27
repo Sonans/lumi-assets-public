@@ -12,6 +12,15 @@ module.exports = {
         "white": "#FFFFFF",
         "black": "#000000",
       },
+      animation: {
+        'slide': 'slide 0.2s linear',
+      },
+      keyframes: {
+        slide: {
+          '0%': { transform: 'translateY(-20px)' },
+          '100%': { transform: 'translateY(0px)' },
+        }
+      }
     },
   },
   plugins: [],
