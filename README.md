@@ -98,4 +98,9 @@ To publish the new version to npm, you need to create a new release on GitHub. F
 
 ## Do you want to contribute?
 
+
 Create a pull request
+
+OR
+
+Create an issue
