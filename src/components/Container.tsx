@@ -3,8 +3,10 @@ import { classes } from '../utils/helpers';
 export interface ContainerProps {
   children: React.ReactNode;
   className?: string;
+  autoAligned?: boolean;
+  style?: React.CSSProperties;
 }
-
-export function Container({ children, className = '' }: ContainerProps) {
-  return <div className={classes('font-sans px-2 sm:px-0 container mx-auto', className)}>{children}</div>;
+let autoCss = "px-2 mx-auto sm:px-0"
+export function Container({ children, className = '', autoAligned = true, style = {} }: ContainerProps) {
+  return <div style={style} className={classes(`font-sans container ${autoAligned ? autoCss : '' }`, className)}>{children}</div>;
 }
