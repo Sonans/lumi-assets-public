@@ -21,8 +21,6 @@ function AccordionItem({
 }: AccordionItemProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const openStyle = isOpen ? 'bg-primary' : '';
-
   const arrowStyle = isOpen ? 'transform rotate-180' : '';
 
   const contentBackgroundStyle = {
@@ -38,7 +36,7 @@ function AccordionItem({
   return (
     <div>
       <div
-        className={`flex justify-between transition-all items-center p-4 relative z-10 ${openStyle} ${titleBackgroundStyle[titleBackgroundColor]}`}
+        className={`flex justify-between transition-all items-center p-4 relative z-10 ${titleBackgroundStyle[titleBackgroundColor]}`}
         onClick={() => setIsOpen(!isOpen)}>
         {title}{' '}
         <svg

@@ -21,6 +21,7 @@ export function ThemeProvider({ children, theme }: Props) {
     if (theme) {
       setSelectedTheme(theme);
     }
+    
   }, [theme]);
 
   return <ThemeContext.Provider value={{ selectedTheme, setSelectedTheme }}>{children}</ThemeContext.Provider>;

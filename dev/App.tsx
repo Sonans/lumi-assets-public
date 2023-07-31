@@ -11,11 +11,20 @@ export default function App() {
           <h1 className='text-4xl'>Components</h1>
         </div>
         <PresentationCard title='Select'>
-          <Select options={[{text: "1", value: "1"}, {text: "2", value: "2"}]} onChange={(e)=> {console.log(e.target.value);}} />
+          <Container className='bg-white p-8' autoAligned={false}>
+              <Select
+                options={[
+                  { text: '1', value: '1' },
+                  { text: '2', value: '2' },
+                ]}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                }}
+              />
+          </Container>
         </PresentationCard>
         <PresentationCard title='Accordion'>
-          <Container autoAligned={false} style={{marginTop:'20px', textAlign:'left'}}>
-          <p>Accordion without autoalignment and inline styling set</p>
+          <Container autoAligned={false} className='bg-white p-8'>
             <Accordion
               titleBackgroundColor='white'
               contentBackgroundColor='white'
@@ -24,10 +33,7 @@ export default function App() {
                   title: 'Hello',
                   content: (
                     <ul>
-                      <li>lol</li>
-                      <li>lol</li>
-                      <li>lol</li>
-                      <li>lol</li>
+                      <li>World!</li>
                     </ul>
                   ),
                 },
@@ -36,30 +42,6 @@ export default function App() {
               ]}
             />
           </Container>
-
-          <Container autoAligned>
-            <p>Accordion with autoalignment</p>
-            <Accordion
-              titleBackgroundColor='white'
-              contentBackgroundColor='white'
-              data={[
-                {
-                  title: 'Hello',
-                  content: (
-                    <ul>
-                      <li>lol</li>
-                      <li>lol</li>
-                      <li>lol</li>
-                      <li>lol</li>
-                    </ul>
-                  ),
-                },
-                { title: 'Goodbye', content: 'Mars!' },
-                { title: 'Goodbye', content: 'Mars!' },
-              ]}
-            />
-          </Container>
-
         </PresentationCard>
         <PresentationCard title='Button'>
           <Button>Hello!</Button>
@@ -67,6 +49,10 @@ export default function App() {
           <Button mode='pink'>Hello!</Button>
           <Button mode='light'>Hello!</Button>
           <Button mode='green'>Hello!</Button>
+          <Button size='lg' mode='dark'>Hello!</Button>
+          <Button size='lg' mode='pink'>Hello!</Button>
+          <Button size='lg' mode='light'>Hello!</Button>
+          <Button size='lg' mode='green'>Hello!</Button>
         </PresentationCard>
         <PresentationCard title='Input'>
           <Input />
