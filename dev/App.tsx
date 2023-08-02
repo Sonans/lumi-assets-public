@@ -1,40 +1,71 @@
 import { useState } from 'react';
-import { Button, Header, Input, Modal, Card, Layout, Column, Accordion, Container, Select, Message } from '../src';
+import {
+  Button,
+  Header,
+  Input,
+  Modal,
+  Card,
+  Layout,
+  Column,
+  Accordion,
+  Container,
+  Select,
+  Message,
+  Spinner,
+  StepNavigation,
+} from '../src';
 import { PresentationCard } from './components/PresentationCard';
 import Toggle from '../src/components/Toggle';
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [secondModalIsOpen, setSecondModalIsOpen] = useState(false);
   return (
     <div>
-      <div className='bg-gray-100 flex flex-col font-sans'>
+      <div className='bg-white flex flex-col font-sans'>
         <div className='p-8'>
           <h1 className='text-4xl'>Components</h1>
         </div>
-        <PresentationCard title='Accordion'>
+        <PresentationCard title='Navigation'>
           <Container className='bg-white p-8 flex gap-4' autoAligned={false}>
-          <Message />
+            <StepNavigation
+              steps={[
+                { title: 'First', url: '/1' },
+                { title: 'Second', url: '/2' },
+                { title: 'Last', url: '/3' },
+              ]}
+            />
           </Container>
         </PresentationCard>
-        <PresentationCard title='Select'>
+        <PresentationCard title='Loading'>
+          <Container className='bg-white p-8 flex gap-4' autoAligned={false}>
+            <Spinner />
+          </Container>
+        </PresentationCard>
+        <PresentationCard title='Message'>
+          <Container className='bg-white p-8 flex gap-4' autoAligned={false}>
+            <Message />
+          </Container>
+        </PresentationCard>
+        <PresentationCard title='Toggle'>
           <Container className='bg-white p-8 flex gap-4' autoAligned={false}>
             <Toggle />
             <Toggle mode='secondary' />
-            <Toggle mode="tertiary" />
-            <Toggle mode="dark" />
+            <Toggle mode='tertiary' />
+            <Toggle mode='dark' />
           </Container>
         </PresentationCard>
         <PresentationCard title='Select'>
           <Container className='bg-white p-8' autoAligned={false}>
-              <Select
-                options={[
-                  { text: '1', value: '1' },
-                  { text: '2', value: '2' },
-                ]}
-                onChange={(e) => {
-                  console.log(e.target.value);
-                }}
-              />
+            <Select
+              options={[
+                { text: '1', value: '1' },
+                { text: '2', value: '2' },
+              ]}
+              onChange={(e) => {
+                console.log(e.target.value);
+              }}
+            />
           </Container>
         </PresentationCard>
         <PresentationCard title='Accordion'>
@@ -63,10 +94,18 @@ export default function App() {
           <Button mode='pink'>Hello!</Button>
           <Button mode='light'>Hello!</Button>
           <Button mode='green'>Hello!</Button>
-          <Button size='lg' mode='dark'>Hello!</Button>
-          <Button size='lg' mode='pink'>Hello!</Button>
-          <Button size='lg' mode='light'>Hello!</Button>
-          <Button size='lg' mode='green'>Hello!</Button>
+          <Button size='lg' mode='dark'>
+            Hello!
+          </Button>
+          <Button size='lg' mode='pink'>
+            Hello!
+          </Button>
+          <Button size='lg' mode='light'>
+            Hello!
+          </Button>
+          <Button size='lg' mode='green'>
+            Hello!
+          </Button>
         </PresentationCard>
         <PresentationCard title='Input'>
           <Input />
@@ -77,6 +116,12 @@ export default function App() {
         <PresentationCard title='Modal'>
           <Button onClick={() => setIsOpen(true)}>Click to open</Button>
           {isOpen && <Modal onClose={() => setIsOpen(false)}>Hello World!</Modal>}
+          <Button onClick={() => setSecondModalIsOpen(true)}>Click to open</Button>
+          {secondModalIsOpen && (
+            <Modal border='wide' mode='secondary' onClose={() => setSecondModalIsOpen(false)}>
+              Goodbye Mars!
+            </Modal>
+          )}
         </PresentationCard>
         <PresentationCard title='Card'>
           <Card>

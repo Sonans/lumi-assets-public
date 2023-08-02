@@ -1,11 +1,27 @@
 import React, { useEffect } from 'react';
+import { classes } from '../utils/helpers';
 
 export interface ModalProps {
   onClose: () => void;
   children: React.ReactNode;
+  mode?: 'primary' | 'secondary' | 'tertiary' | 'dark';
+  border?: 'regular' | 'wide' | 'none';
 }
 
-export function Modal({ onClose, children }: ModalProps) {
+export function Modal({ onClose, children, mode = 'primary', border = 'regular' }: ModalProps) {
+  const modeClasses = {
+    primary: 'border-primary',
+    secondary: 'border-secondary',
+    tertiary: 'border-tertiary',
+    dark: 'border-black',
+  };
+
+  const borderClasses = {
+    regular: 'border-4',
+    wide: 'border-l-[4rem] border-r-4 border-b-4 border-t-4',
+    none: '',
+  };
+
   useEffect(() => {
     const body = document.querySelector('body');
     body?.classList.add('overflow-hidden');
@@ -31,7 +47,7 @@ export function Modal({ onClose, children }: ModalProps) {
 
   function handleClose(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const target = e.target as HTMLElement;
-    if (target.classList.contains('modal')) {
+    if (target === e.currentTarget) {
       onClose();
     }
   }
@@ -40,7 +56,12 @@ export function Modal({ onClose, children }: ModalProps) {
     <div
       onClick={handleClose}
       className='modal fixed inset-0 flex items-center justify-center z-50 overflow-auto bg-black bg-opacity-75'>
-      <div className='w-11/12 md:max-w-md mx-auto shadow-lg py-4 bg-white px-6 border-4 border-primary'>
+      <div
+        className={classes(
+          'w-11/12 md:max-w-md mx-auto shadow-lg py-4 bg-white px-6',
+          borderClasses[border],
+          modeClasses[mode]
+        )}>
         <div className='w-full flex justify-end'>
           <button onClick={onClose} className='text-black close-modal'>
             <svg

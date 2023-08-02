@@ -1,5 +1,8 @@
 import { ReactComponent as Info } from './assets/info.svg';
 
+
+
+
 type Icon =
   | 'check'
   | 'arrow-thin-left'

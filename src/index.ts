@@ -13,3 +13,5 @@ export * from './components/Accordion';
 export * from './components/Select';
 export * from "./components/Toggle";
 export * from "./components/Message";
+export * from "./components/Spinner";
+export * from "./components/StepNavigation";

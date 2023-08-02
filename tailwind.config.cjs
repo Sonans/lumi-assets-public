@@ -14,6 +14,7 @@ module.exports = {
       },
       animation: {
         'slide': 'slide 0.2s linear',
+        'spin-slow': 'spin 4s linear infinite',
       },
       keyframes: {
         slide: {
