@@ -11,3 +11,5 @@ export * from './components/Logo';
 export * from './components/Card';
 export * from './components/Accordion';
 export * from './components/Select';
+export * from "./components/Toggle";
+export * from "./components/Message";

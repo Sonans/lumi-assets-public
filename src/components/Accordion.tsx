@@ -50,7 +50,7 @@ function AccordionItem({
         </svg>
       </div>
       {isOpen && (
-        <div className={`pl-8 pt-4 last:pb-4 animate-slide ${contentBackgroundStyle[contentBackgroundColor]}`}>
+        <div className={`pl-8 pt-4 pb-4 animate-slide ${contentBackgroundStyle[contentBackgroundColor]}`}>
           {content}
         </div>
       )}

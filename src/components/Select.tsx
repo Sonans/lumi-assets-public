@@ -4,7 +4,7 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
 
 export function Select({ options, ...props }: SelectProps) {
   return (
-    <select className="p-2 w-full rounded-md" {...props}>
+    <select className="p-4 w-full rounded-md border border-gray-300" {...props}>
       {options?.map((option) => (
         <option key={option.value} value={option.value}>{option.text}</option>
       ))}

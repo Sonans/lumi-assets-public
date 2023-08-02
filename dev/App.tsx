@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Button, Header, Input, Modal, Card, Layout, Column, Accordion, Container, Select } from '../src';
+import { Button, Header, Input, Modal, Card, Layout, Column, Accordion, Container, Select, Message } from '../src';
 import { PresentationCard } from './components/PresentationCard';
+import Toggle from '../src/components/Toggle';
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,19 @@ export default function App() {
         <div className='p-8'>
           <h1 className='text-4xl'>Components</h1>
         </div>
+        <PresentationCard title='Accordion'>
+          <Container className='bg-white p-8 flex gap-4' autoAligned={false}>
+          <Message />
+          </Container>
+        </PresentationCard>
+        <PresentationCard title='Select'>
+          <Container className='bg-white p-8 flex gap-4' autoAligned={false}>
+            <Toggle />
+            <Toggle mode='secondary' />
+            <Toggle mode="tertiary" />
+            <Toggle mode="dark" />
+          </Container>
+        </PresentationCard>
         <PresentationCard title='Select'>
           <Container className='bg-white p-8' autoAligned={false}>
               <Select

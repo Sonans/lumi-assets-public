@@ -3,6 +3,7 @@ import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import libCss from 'vite-plugin-libcss';
+import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,5 +24,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react(), dts(), libCss()],
+  plugins: [react(), dts(), libCss(), svgr()],
 });
