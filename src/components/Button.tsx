@@ -1,39 +1,43 @@
 import React from 'react';
 import { classes } from '../utils/helpers';
+import { ButtonHTMLAttributes } from 'react';
 
-type ButtonMode = 'dark' | 'light' | 'yellow' | 'green' | 'pink';
+type ButtonMode = 'black' | 'white' | 'primary' | 'secondary' | 'tertiary';
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   mode?: ButtonMode;
   children: React.ReactNode;
   className?: string;
-  size?: 'sm' | 'lg';
+  size?: 'sm' | 'md' | 'lg';
 }
 
-export function Button({ children, mode = 'yellow', className = '', size = 'sm', ...props }: ButtonProps) {
+export function Button({ children, mode = 'primary', className = '', size = 'md', ...props }: ButtonProps) {
   const modeClasses = {
-    dark: 'bg-black text-white hover:bg-primary hover:text-black disabled:hover:bg-black disabled:hover:text-white',
-    light: 'bg-white text-black hover:bg-black hover:text-white disabled:hover:bg-white disabled:hover:text-black',
-    yellow: 'bg-primary text-black hover:bg-black hover:text-white disabled:hover:bg-primary disabled:hover:text-black',
-    green:
+    primary:
+      'bg-primary text-black hover:bg-black hover:text-white disabled:hover:bg-primary disabled:hover:text-black',
+    secondary:
+      'bg-secondary text-black hover:bg-black hover:text-white disabled:hover:bg-secondary disabled:hover:text-black',
+    tertiary:
       'bg-tertiary text-black hover:bg-black hover:text-white disabled:hover:bg-tertiary disabled:hover:text-black',
-    pink: 'bg-secondary text-black hover:bg-black hover:text-white disabled:hover:bg-secondary disabled:hover:text-black',
+    white: 'bg-white text-black hover:bg-black hover:text-white disabled:hover:bg-white disabled:hover:text-black',
+    black: 'bg-black text-white hover:bg-primary hover:text-black disabled:hover:bg-black disabled:hover:text-white',
   };
 
   const sizeClasses = {
-    sm: 'py-2 px-4 text-md',
-    lg: 'py-2 px-6 text-lg',
+    sm: 'py-1 px-4 text-sm',
+    md: 'py-2 px-4 text-base',
+    lg: 'py-3 px-8 text-lg',
   };
 
   return (
     <button
+      {...props}
       className={classes(
         modeClasses[mode],
         sizeClasses[size],
-        `font-sans font-bold flex items-center justify-center w-auto self-start grow-0 rounded-md cursor-pointer border border-solid border-black disabled:opacity-50 disabled:bg-bg-grey disabled:text-text-grey disabled:cursor-default transition-all`,
+        `font-sans text-md border-[var(--border)] font-medium flex items-center justify-center w-auto self-start grow-0 rounded-[var(--borderRadius)] cursor-pointer disabled:opacity-50 disabled:bg-bg-grey disabled:text-text-grey disabled:cursor-default transition-all`,
         className
-      )}
-      {...props}>
+      )}>
       {children}
     </button>
   );

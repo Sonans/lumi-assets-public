@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
 import { classes } from '../utils/helpers';
 
-export interface ModalProps {
+interface Props {
   onClose: () => void;
   children: React.ReactNode;
-  mode?: 'primary' | 'secondary' | 'tertiary' | 'dark';
-  border?: 'regular' | 'wide' | 'none';
 }
 
-export function Modal({ onClose, children, mode = 'primary', border = 'regular' }: ModalProps) {
+export function Modal({ onClose, children }: Props) {
   const modeClasses = {
     primary: 'border-primary',
     secondary: 'border-secondary',
@@ -55,12 +53,10 @@ export function Modal({ onClose, children, mode = 'primary', border = 'regular' 
   return (
     <div
       onClick={handleClose}
-      className='modal fixed inset-0 flex items-center justify-center z-50 overflow-auto bg-black bg-opacity-75'>
+      className='modal fixed inset-0 flex items-center justify-center z-50 overflow-auto bg-[rgba(0,0,0,0.8)]'>
       <div
         className={classes(
           'w-11/12 md:max-w-md mx-auto shadow-lg py-4 bg-white px-6',
-          borderClasses[border],
-          modeClasses[mode]
         )}>
         <div className='w-full flex justify-end'>
           <button onClick={onClose} className='text-black close-modal'>

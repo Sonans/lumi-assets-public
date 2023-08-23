@@ -1,47 +1,23 @@
 import { useState } from 'react';
-import {
-  Button,
-  Header,
-  Input,
-  Modal,
-  Card,
-  Layout,
-  Column,
-  Accordion,
-  Container,
-  Select,
-  Message,
-  Spinner,
-  StepNavigation,
-} from '../src';
+import { Button, Input, Modal, Card, Layout, Column, Accordion, Container, Select, Message } from '../src';
 import { PresentationCard } from './components/PresentationCard';
 import Toggle from '../src/components/Toggle';
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [secondModalIsOpen, setSecondModalIsOpen] = useState(false);
+  const [selectedTheme, setSelectedTheme] = useState('theme-sonans');
+
   return (
-    <div>
+    <div className={selectedTheme}>
+      <div className='flex gap-2'>
+        <button onClick={() => setSelectedTheme('theme-sonans')}>Sonans</button>
+        <button onClick={() => setSelectedTheme('theme-onh')}>ONH</button>
+        <button onClick={() => setSelectedTheme('theme-ntech')}>NTECH</button>
+      </div>
       <div className='bg-white flex flex-col font-sans'>
         <div className='p-8'>
           <h1 className='text-4xl'>Components</h1>
         </div>
-        <PresentationCard title='Navigation'>
-          <Container className='bg-white p-8 flex gap-4' autoAligned={false}>
-            <StepNavigation
-              steps={[
-                { title: 'First', url: '/1' },
-                { title: 'Second', url: '/2' },
-                { title: 'Last', url: '/3' },
-              ]}
-            />
-          </Container>
-        </PresentationCard>
-        <PresentationCard title='Loading'>
-          <Container className='bg-white p-8 flex gap-4' autoAligned={false}>
-            <Spinner />
-          </Container>
-        </PresentationCard>
         <PresentationCard title='Message'>
           <Container className='bg-white p-8 flex gap-4' autoAligned={false}>
             <Message />
@@ -89,69 +65,33 @@ export default function App() {
           </Container>
         </PresentationCard>
         <PresentationCard title='Button'>
-          <Button>Hello!</Button>
-          <Button mode='dark'>Hello!</Button>
-          <Button mode='pink'>Hello!</Button>
-          <Button mode='light'>Hello!</Button>
-          <Button mode='green'>Hello!</Button>
-          <Button size='lg' mode='dark'>
+          <Button mode='primary'>Hello!</Button>
+          <Button mode='secondary'>Hello!</Button>
+          <Button mode='tertiary'>Hello!</Button>
+          <Button mode='white'>Hello!</Button>
+          <Button mode='black'>Hello!</Button>
+          <Button size='lg' mode='primary'>
             Hello!
           </Button>
-          <Button size='lg' mode='pink'>
+          <Button size='lg' mode='secondary'>
             Hello!
           </Button>
-          <Button size='lg' mode='light'>
+          <Button size='lg' mode='tertiary'>
             Hello!
           </Button>
-          <Button size='lg' mode='green'>
+          <Button size='lg' mode='white'>
+            Hello!
+          </Button>
+          <Button size='lg' mode='black'>
             Hello!
           </Button>
         </PresentationCard>
         <PresentationCard title='Input'>
           <Input />
         </PresentationCard>
-        <PresentationCard title='Header'>
-          <Header />
-        </PresentationCard>
         <PresentationCard title='Modal'>
           <Button onClick={() => setIsOpen(true)}>Click to open</Button>
           {isOpen && <Modal onClose={() => setIsOpen(false)}>Hello World!</Modal>}
-          <Button onClick={() => setSecondModalIsOpen(true)}>Click to open</Button>
-          {secondModalIsOpen && (
-            <Modal border='wide' mode='secondary' onClose={() => setSecondModalIsOpen(false)}>
-              Goodbye Mars!
-            </Modal>
-          )}
-        </PresentationCard>
-        <PresentationCard title='Card'>
-          <Card>
-            <p>Hello World!</p>
-          </Card>
-        </PresentationCard>
-        <PresentationCard title='Layout'>
-          <Layout cols={6}>
-            <Card backgroundColor='primary'>
-              <Column>
-                <p>Hello World!</p>
-                <Button mode='dark'>Hello!</Button>
-              </Column>
-            </Card>
-            <Card>
-              <p>Hello World!</p>
-            </Card>
-            <Card>
-              <p>Hello World!</p>
-            </Card>
-            <Card>
-              <p>Hello World!</p>
-            </Card>
-            <Card>
-              <p>Hello World!</p>
-            </Card>
-            <Card>
-              <p>Hello World!</p>
-            </Card>
-          </Layout>
         </PresentationCard>
       </div>
     </div>

@@ -11,3 +11,32 @@ select {
   background-position-x: 99%;
   background-position-y: 50%;
 }
+
+.theme-sonans {
+  --primary: #fbe54d;
+  --secondary: #FF8DEF;
+  --tertiary: #76FF76;
+  --black: #000;
+  --white: #ffff;
+  --gray: #ccc;
+  --borderRadius: 0.4rem;
+}
+
+.theme-onh {
+  --primary: #64ffd0;
+  --secondary: #c4fc2e;
+  --tertiary: #f5f1f1;
+  --black: #000;
+  --white: #ffff;
+  --gray: #ccc;
+  --borderRadius: 0rem;
+}
+
+.theme-ntech {
+  --primary: #ff522b;
+  --secondary: #7de9d7;
+  --tertiary: #c47cdc;
+  --black: #000;
+  --white: #ffff;
+  --borderRadius: 4rem;
+}

@@ -4,13 +4,28 @@ module.exports = {
     './src/**/**/*.{js,jsx,ts,tsx}',
     './dev/**/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    container: {
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '16rem',
+      },
+    },
     extend: {
       colors: {
-        'primary': '#FBE54D',
-        'secondary': '#FF8DEF',
-        'tertiary': '#76FF76',
-        "white": "#FFFFFF",
-        "black": "#000000",
+        'primary': 'var(--primary)',
+        'secondary': 'var(--secondary)',
+        'tertiary': 'var(--tertiary)',
+        "white": "var(--white)",
+        "black": "var(--black)",
+      },
+      border: {
+        border: 'var(--border)',
+      },
+      borderRadius: {
+        radius: 'var(--borderRadius)',
       },
       animation: {
         'slide': 'slide 0.2s linear',

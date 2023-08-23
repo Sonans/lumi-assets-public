@@ -1,19 +1,13 @@
 import { useState } from 'react';
 
-interface AccordionItemProps {
+export interface AccordionItemProps {
   title: string;
   content: React.ReactNode;
   titleBackgroundColor?: 'white' | 'primary';
   contentBackgroundColor?: 'white' | 'primary';
 }
 
-interface AccordionProps {
-  data: AccordionItemProps[];
-  titleBackgroundColor?: 'white' | 'primary';
-  contentBackgroundColor?: 'white' | 'primary';
-}
-
-function AccordionItem({
+export function AccordionItem({
   title,
   content,
   contentBackgroundColor = 'white',
@@ -54,22 +48,6 @@ function AccordionItem({
           {content}
         </div>
       )}
-    </div>
-  );
-}
-
-export function Accordion({ data, contentBackgroundColor = 'white', titleBackgroundColor = 'white' }: AccordionProps) {
-  return (
-    <div className='w-full'>
-      {data.map((item, index) => (
-        <AccordionItem
-          contentBackgroundColor={contentBackgroundColor}
-          titleBackgroundColor={titleBackgroundColor}
-          key={index}
-          title={item.title}
-          content={item.content}
-        />
-      ))}
     </div>
   );
 }
