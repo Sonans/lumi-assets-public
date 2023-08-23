@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Input, Modal, Card, Layout, Column, Accordion, Container, Select, Message } from '../src';
+import { Button, Input, Modal, Accordion, Container, Select, Message } from '../src';
 import { PresentationCard } from './components/PresentationCard';
 import Toggle from '../src/components/Toggle';
 
