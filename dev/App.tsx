@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, Input, Modal, Accordion, Container, Select, Message } from '../src';
 import { PresentationCard } from './components/PresentationCard';
 import Toggle from '../src/components/Toggle';
+import { Checkbox } from '../src/components/Checkbox';
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,14 @@ export default function App() {
         <PresentationCard title='Message'>
           <Container className='bg-white p-8 flex gap-4' autoAligned={false}>
             <Message />
+          </Container>
+        </PresentationCard>
+        <PresentationCard title='Checkbox'>
+          <Container className='bg-white p-8 flex gap-4' autoAligned={false}>
+            <Checkbox />
+            <Checkbox mode='secondary' />
+            <Checkbox mode='tertiary' />
+            <Checkbox mode='black' />
           </Container>
         </PresentationCard>
         <PresentationCard title='Toggle'>

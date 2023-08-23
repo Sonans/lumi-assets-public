@@ -40,3 +40,12 @@ select {
   --white: #ffff;
   --borderRadius: 4rem;
 }
+
+.theme-lumi {
+  --primary: #32007d;
+  --secondary: #c8afff;
+  --tertiary: #c47cdc;
+  --black: #000;
+  --white: #ffff;
+  --borderRadius: 1rem;
+}
