@@ -1,22 +1,27 @@
 import React from 'react';
 import { classes } from '../utils/helpers';
 import { ButtonHTMLAttributes } from 'react';
+import { BackgroundColorProps, SizeProps } from '../types';
 
-type ButtonMode = 'black' | 'white' | 'primary' | 'secondary' | 'tertiary';
-
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  mode?: ButtonMode;
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, SizeProps, BackgroundColorProps {
   children: React.ReactNode;
   className?: string;
-  size?: 'sm' | 'md' | 'lg';
+  centered?: boolean;
 }
 
-export function Button({ children, mode = 'primary', className = '', size = 'md', ...props }: ButtonProps) {
-  const modeClasses = {
+export function Button({
+  children,
+  backgroundColor = 'primary',
+  className = '',
+  size = 'md',
+  centered = false,
+  ...props
+}: ButtonProps) {
+  const backgroundColorClasses = {
     primary:
-      'bg-primary text-black hover:bg-black hover:text-white disabled:hover:bg-primary disabled:hover:text-black',
+      'bg-primary text-text-on-primary hover:bg-black hover:text-white disabled:hover:bg-primary disabled:hover:text-black',
     secondary:
-      'bg-secondary text-black hover:bg-black hover:text-white disabled:hover:bg-secondary disabled:hover:text-black',
+      'bg-secondary text-text-on-secondary hover:bg-black hover:text-white disabled:hover:bg-secondary disabled:hover:text-black',
     tertiary:
       'bg-tertiary text-black hover:bg-black hover:text-white disabled:hover:bg-tertiary disabled:hover:text-black',
     white: 'bg-white text-black hover:bg-black hover:text-white disabled:hover:bg-white disabled:hover:text-black',
@@ -24,18 +29,22 @@ export function Button({ children, mode = 'primary', className = '', size = 'md'
   };
 
   const sizeClasses = {
-    sm: 'py-1 px-4 text-sm',
-    md: 'py-2 px-4 text-base',
-    lg: 'py-3 px-8 text-lg',
+    sm: 'w-auto self-start grow-0 py-1 px-2 text-sm',
+    md: 'w-auto self-start grow-0 py-2 px-3 text-base',
+    lg: 'w-auto self-start grow-0 py-3 px-6 text-lg',
+    full: 'w-full py-3 text-lg',
   };
+
+  const centeredClasses = centered ? 'mx-auto' : '';
 
   return (
     <button
       {...props}
       className={classes(
-        modeClasses[mode],
+        backgroundColorClasses[backgroundColor],
         sizeClasses[size],
-        `font-sans text-md border-[var(--border)] font-medium flex items-center justify-center w-auto self-start grow-0 rounded-[var(--borderRadius)] cursor-pointer disabled:opacity-50 disabled:bg-bg-grey disabled:text-text-grey disabled:cursor-default transition-all`,
+        centeredClasses,
+        `la-button font-sans text-md font-medium flex items-center justify-center rounded-[var(--borderRadius)] cursor-pointer disabled:opacity-50 disabled:bg-bg-grey disabled:text-text-grey disabled:cursor-default transition-all`,
         className
       )}>
       {children}

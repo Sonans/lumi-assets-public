@@ -9,9 +9,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export function Container({ children, className = '', autoAligned = true, ...props }: Props) {
-  const autoCss = 'mx-auto';
   return (
-    <div className={classes(`font-sans container ${autoAligned ? autoCss : ''}`, className)} {...props}>
+    <div className={classes(`font-sans container`, autoAligned ? 'mx-auto' : 'p-0', className)} {...props}>
       {children}
     </div>
   );

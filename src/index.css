@@ -13,39 +13,46 @@ select {
 }
 
 .theme-sonans {
-  --primary: #fbe54d;
-  --secondary: #FF8DEF;
-  --tertiary: #76FF76;
-  --black: #000;
-  --white: #ffff;
-  --gray: #ccc;
+  --primary: 251, 229, 77;
+  --text-on-primary: 0, 0, 0;
+  --secondary: 255, 141, 239;
+  --tertiary: 118, 255, 118;
+  --black: 0, 0, 0;
+  --white: 255, 255, 255;
   --borderRadius: 0.4rem;
 }
 
+.theme-sonans .la-button {
+    border: 1px solid #000;
+}
+
 .theme-onh {
-  --primary: #64ffd0;
-  --secondary: #c4fc2e;
-  --tertiary: #f5f1f1;
-  --black: #000;
-  --white: #ffff;
-  --gray: #ccc;
+  --primary: 100, 255, 208;
+  --text-on-primary: 0, 0, 0;
+  --secondary: 196, 252, 46;
+  --tertiary: 245, 241, 241;
+  --black: 0, 0, 0;
+  --white: 255, 255, 255;
   --borderRadius: 0rem;
 }
 
-.theme-ntech {
-  --primary: #ff522b;
-  --secondary: #7de9d7;
-  --tertiary: #c47cdc;
-  --black: #000;
-  --white: #ffff;
-  --borderRadius: 4rem;
+.theme-lumi {
+  --primary: 50, 0, 125;
+  --text-on-primary: 255, 255, 255;
+  --secondary: 200, 175, 255;
+  --tertiary: 196, 124, 220;
+  --black: 0, 0, 0;
+  --white: 255, 255, 255;
+  --borderRadius: 0.2rem;
 }
 
-.theme-lumi {
-  --primary: #32007d;
-  --secondary: #c8afff;
-  --tertiary: #c47cdc;
-  --black: #000;
-  --white: #ffff;
-  --borderRadius: 1rem;
+.theme-alf {
+  --primary: 255, 197, 4;
+  --text-on-primary: 0, 0, 0;
+  --secondary: 0, 164, 178;
+  --text-on-secondary: 255, 255, 255;
+  --tertiary: 255, 238, 180;
+  --black: 39, 38, 33;
+  --white: 255, 255, 255;
+  --borderRadius: 0.2rem;
 }

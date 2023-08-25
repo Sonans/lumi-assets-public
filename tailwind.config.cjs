@@ -1,3 +1,12 @@
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`
+    }
+    return `rgb(var(${variableName}))`
+  }
+}
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -15,11 +24,13 @@ module.exports = {
     },
     extend: {
       colors: {
-        'primary': 'var(--primary)',
-        'secondary': 'var(--secondary)',
-        'tertiary': 'var(--tertiary)',
-        "white": "var(--white)",
-        "black": "var(--black)",
+        'primary': withOpacity('--primary'),
+        'text-on-primary': withOpacity('--text-on-primary'),
+        'secondary': withOpacity('--secondary'),
+        'text-on-secondary': withOpacity('--text-on-secondary'),
+        'tertiary': withOpacity('--tertiary'),
+        "white": withOpacity('--white'),
+        "black": withOpacity('--black'),
       },
       border: {
         border: 'var(--border)',

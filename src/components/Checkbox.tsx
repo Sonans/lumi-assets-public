@@ -7,11 +7,20 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 export function Checkbox({ mode = 'primary', ...props }: Props) {
   const modeClasses = {
-    primary: 'text-primary bg-gray-100 border-gray-300 rounded-md focus:ring-primary focu:ring-2',
-    secondary: 'text-secondary bg-gray-100 border-gray-300 rounded-md focus:ring-secondary focu:ring-2',
-    tertiary: 'text-tertiary bg-gray-100 border-gray-300 rounded-md focus:ring-tertiary focu:ring-2',
-    black: 'text-black bg-gray-100 border-gray-300 rounded-md focus:ring-black focu:ring-2',
+    primary: ' border-primary accent-primary',
+    secondary: ' border-secondary accent-secondary',
+    tertiary: ' border-tertiary accent-tertiary',
+    black: ' border-black accent-black',
   };
 
-  return <input type='checkbox' className={classes(modeClasses[mode])} {...props} />;
+  return (
+    <input
+      type='checkbox'
+      className={classes(
+        modeClasses[mode],
+        'bg-transparent border w-6 h-6 after:h-4 relative after:w-4 after:absolute cursor-pointer after:top-[50%] after:left-[50%] after:translate-x-[-50%] after:translate-y-[-50%]'
+      )}
+      {...props}
+    />
+  );
 }

@@ -1,18 +1,29 @@
+import { BackgroundColorProps } from '../types';
 import { classes } from '../utils/helpers';
+import { HTMLAttributes } from 'react';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
-  mode?: 'primary' | 'secondary' | 'tertiary';
+interface Props extends HTMLAttributes<HTMLDivElement>, BackgroundColorProps {
+  children: React.ReactNode;
 }
 
-export function Message({ mode = 'primary' }: Props) {
-  const modeClasses = {
-    primary: 'bg-primary bg-primary/50 border-primary',
-    secondary: 'bg-secondary bg-secondary/50 border-secondary',
-    tertiary: 'bg-tertiary bg-tertiary/50 border-tertiary',
+export function Message({ backgroundColor = 'primary', ...props }: Props) {
+  const backgroundColorClasses = {
+    primary: 'bg-primary/40 border-primary',
+    secondary: 'bg-secondary/40 border-secondary',
+    tertiary: 'bg-tertiary/40 border-tertiary',
+    white: 'bg-white/40 border-white',
+    black: 'bg-black/40 border-black',
   };
 
+  const onClickClass = props.onClick ? 'cursor-pointer' : '';
+
   return (
-    <div className={classes('border-4 flex justify-center p-4 cursor-pointer w-full', modeClasses[mode])}>
+    <div
+      className={classes(
+        'border-2 flex justify-center p-4 w-full rounded-radius',
+        backgroundColorClasses[backgroundColor],
+        onClickClass
+      )}>
       <div>Hello World!</div>
       <svg className='w-4 ml-auto' id='Layer_2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26.69 26.69'>
         <defs>
