@@ -10,7 +10,7 @@ export function Input({ className = '', ...props }: InputProps) {
     <input
       {...props}
       className={classes(
-        'font-sans p-2 border-solid border-[1px] border-gray-400 w-full rounded-none text-md outline-secondary',
+        'font-sans p-3 border-solid border-[1px] border-gray-300 w-full rounded-none text-md outline-secondary',
         className
       )}
       {...props}

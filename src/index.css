@@ -18,6 +18,7 @@ select {
   --secondary: 255, 141, 239;
   --tertiary: 118, 255, 118;
   --black: 0, 0, 0;
+  --gray: 209, 213, 219;
   --white: 255, 255, 255;
   --borderRadius: 0.4rem;
 }
@@ -32,6 +33,7 @@ select {
   --secondary: 196, 252, 46;
   --tertiary: 245, 241, 241;
   --black: 0, 0, 0;
+  --gray: 209, 213, 219;
   --white: 255, 255, 255;
   --borderRadius: 0rem;
 }
@@ -42,6 +44,7 @@ select {
   --secondary: 200, 175, 255;
   --tertiary: 196, 124, 220;
   --black: 0, 0, 0;
+  --gray: 209, 213, 219;
   --white: 255, 255, 255;
   --borderRadius: 0.2rem;
 }
@@ -53,6 +56,7 @@ select {
   --text-on-secondary: 255, 255, 255;
   --tertiary: 255, 238, 180;
   --black: 39, 38, 33;
+  --gray: 209, 213, 219;
   --white: 255, 255, 255;
   --borderRadius: 0.2rem;
 }

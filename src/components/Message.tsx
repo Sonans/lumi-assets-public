@@ -20,7 +20,7 @@ export function Message({ backgroundColor = 'primary', ...props }: Props) {
   return (
     <div
       className={classes(
-        'border-2 flex justify-center p-4 w-full rounded-radius',
+        'border flex justify-center p-4 w-full rounded-radius',
         backgroundColorClasses[backgroundColor],
         onClickClass
       )}>

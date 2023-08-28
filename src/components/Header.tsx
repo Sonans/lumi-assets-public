@@ -9,12 +9,12 @@ interface Props {
   logo?: React.ReactNode;
 }
 
-export function Header({ logo = 'logo' }: Props) {
+export function Header({ logo = <h2 className='font-bold uppercase'>Logo</h2> }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <>
-      <header className={classes('w-full font-sans flex justify-between bg-primary')}>
+      <header className={classes('w-full font-sans flex justify-between bg-primary text-text-on-primary')}>
         <Container className='py-4 flex justify-between'>
           {logo}
           <button name='navigation' onClick={() => setIsMenuOpen(!isMenuOpen)}>

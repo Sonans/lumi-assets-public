@@ -11,7 +11,7 @@ interface Props {
 export function Modal({ onClose, children, size = 'md', restrictClose = false }: Props) {
   const sizeClasses = {
     sm: 'w-11/12 md:w-[30%]',
-    md: 'w-11/12 md:w-[60%]',
+    md: 'w-11/12 md:w-[50%]',
     lg: 'w-11/12 md:w-[80%]',
     full: 'w-full h-full',
   };

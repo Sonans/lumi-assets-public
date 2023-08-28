@@ -15,7 +15,7 @@ export function Badge({ children, backgroundColor = 'primary' }: Props) {
   };
 
   return (
-    <div className={classes('w-auto self-start grow-0 px-3 py-1 rounded-radius font-medium', backgroundColorClasses[backgroundColor])}>
+    <div className={classes('w-auto self-start grow-0 px-3 text-sm py-1 rounded-radius font-medium', backgroundColorClasses[backgroundColor])}>
       {children}
     </div>
   );

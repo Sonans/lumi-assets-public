@@ -10,6 +10,7 @@ export interface ColumnProps {
   gap?: ColGap;
   direction?: 'row' | 'column';
   children: React.ReactNode;
+  align?: 'start' | 'center' | 'end';
 }
 
 export function Column({ colStart = 'auto', children, colSpan = 1, gap = 'md', direction = 'column' }: ColumnProps) {
@@ -56,6 +57,10 @@ export function Column({ colStart = 'auto', children, colSpan = 1, gap = 'md', d
     row: 'flex-row',
     column: 'flex-col',
   };
+
+  const alignStyle = {
+    start: 'items-start',
+  }
 
   return (
     <div
