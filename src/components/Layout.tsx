@@ -1,5 +1,5 @@
 import React from 'react';
-import { BackgroundColorProps } from '../types';
+import { BackgroundColorProps, gap } from '../types';
 import { classes } from '../utils/helpers';
 
 type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
@@ -9,9 +9,10 @@ interface Props extends BackgroundColorProps {
   cols?: Cols;
   rows?: Rows;
   children: React.ReactNode;
+  gap: gap;
 }
 
-export function Layout({ cols = 1, rows = 1, children }: Props) {
+export function Layout({ cols = 1, rows = 1, children, gap = 'sm' }: Props) {
   const colStyle = {
     1: 'grid-cols-1',
     2: 'grid-cols-2',
@@ -42,5 +43,13 @@ export function Layout({ cols = 1, rows = 1, children }: Props) {
     12: 'grid-rows-12',
   };
 
-  return <div className={classes(`w-full grid gap-4`, colStyle[cols], rowStyle[rows])}>{children}</div>;
+  const gapStyle = {
+    sm: 'gap-2',
+    md: 'gap-4',
+    lg: 'gap-8',
+    xl: 'gap-16',
+    none: '',
+  };
+
+  return <div className={classes(`w-full grid`, colStyle[cols], rowStyle[rows], gapStyle[gap])}>{children}</div>;
 }

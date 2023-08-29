@@ -172,7 +172,7 @@ export default function App() {
                 </Column>
                 <Column gap='sm'>
                   <Input />
-                  <Input />
+                  <Select options={[{ text: 'lol', value: 'lol' }]} />
                 </Column>
               </Layout>
             </Fieldset>

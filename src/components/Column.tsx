@@ -58,10 +58,6 @@ export function Column({ colStart = 'auto', children, colSpan = 1, gap = 'md', d
     column: 'flex-col',
   };
 
-  const alignStyle = {
-    start: 'items-start',
-  }
-
   return (
     <div
       className={`flex ${directionStyle[direction]} ${colPlacementStyle[colStart]} ${colSpanStyle[colSpan]} ${gapStyle[gap]}`}>
