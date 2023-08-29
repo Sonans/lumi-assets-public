@@ -9,7 +9,7 @@ interface Props extends BackgroundColorProps {
   cols?: Cols;
   rows?: Rows;
   children: React.ReactNode;
-  gap: gap;
+  gap?: gap;
 }
 
 export function Layout({ cols = 1, rows = 1, children, gap = 'sm' }: Props) {
